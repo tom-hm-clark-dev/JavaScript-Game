@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href = "assignment_game_07.css">
+		<meta charset="utf-8">
+		<title>Falling stuff</title>
+		<script src="random_leaderboard.js"></script> 
+	</head>
+	<body onLoad = "falling_stuff_namespace.splash_screen()"></body>>
+	<div class="title">	<h2>A Basic Game</h2></div>
+	<div class="gameContainer";>
+ 
+	<form id="Game Controls">
+		<input type="button" value="Start game" onclick="falling_stuff_namespace.start_game()">
+		<input type="button" value="Stop game" onclick="falling_stuff_namespace.stop_game()">
+	</form>
+	
+		<canvas id="game_canvas" width="640" height="480"></canvas>
+		<div><p id = "p1"></p>
+			<p id = "p2"></p>
+			<p id = "p3"></p>
+		</div>
+
+		<img id="player_sprite" src="C:\Users\bloch\Desktop\Uni\Year 2R\CS25320 Assignment\Thunderforce game\src\Spaceship_Asset.png" alt="Player character spritesheet">
+
+		<table id="leaderboard"><caption>Top Scores</caption>
+            <thead><tr><th>Name</th><th>Score</th></tr></thead>
+            <tbody id="top_scores"></tbody>
+        </table>
+	</div>
+	
+	
+<script src="assignment_game_07.js"></script>
+</body>
+</html>
+

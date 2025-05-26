@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href = "assignment_game_04.css">
+		<meta charset="utf-8">
+		<title>Falling stuff</title>
+	</head>
+	<body onLoad = "falling_stuff_namespace.start_game()">
+	<div class="title">	<h2>A Basic Game</h2></div>
+	<div class="gameContainer";>
+    <ul>
+        <li>An animation with falling things to catch or dodge</li>
+        <li>You can make this into an interesting game by adding graphics, scores, good things to catch and bad things to dodge... </li>
+        <li>You could turn it into a space invaders or asteroids or ...</li>
+    </ul>
+
+	<form id="Game Controls">
+		<input type="button" value="Start game" onclick="falling_stuff_namespace.start_game()">
+		<input type="button" value="Stop game" onclick="falling_stuff_namespace.stop_game()">
+	</form>
+	
+		<canvas id="game_canvas" width="540" height="720" style="border:5px double" ></canvas>
+		<div><p id = "p1"></p>
+			<p id = "p2"></p>
+			<p id = "p3"></p>
+		</div>
+	</div>
+	
+	
+<script src="assignment_game_04.js"></script>
+</body>
+</html>
+

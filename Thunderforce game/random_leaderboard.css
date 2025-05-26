@@ -1,0 +1,30 @@
+/* Edel Sherratt October 2022
+ * basic styling for the random leaderboard demo 
+*/
+
+canvas {
+    border: 1px dotted black;
+}
+
+#leaderboard {
+    border: 2px solid blue;
+    margin-left: 40px;
+}
+
+#leaderboard > caption {
+    padding-top: 40px;
+    padding-bottom: 10px;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#leaderboard > thead {
+    text-emphasis: strong;
+}
+
+#leaderboard >  th, td {
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  border-style: inherit;
+}

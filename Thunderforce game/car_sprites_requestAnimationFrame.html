@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+<title>Sprite animation using requestAnimationFrame</title>
+</head>
+<body>
+<h1>Sprite animation using requestAnimationFrame</h1>
+
+<canvas id="car_sprite_canvas" width="800" height="36" style="border:1px dotted" onClick="car_sprites_namespace.draw_car()"></canvas>
+
+<!-- Usually you wouldn't show the spritesheet - you'd give it an attribute style="display:none"-->
+<img id="carsprites" src="img/sprite-example.gif" 
+    alt="A spritesheet with images of cars and other vehicles. Each vehicle is in a 32 by 32 pixel square on the spritesheet">
+
+<script>
+
+const car_sprites_namespace = function () { // an anonymous function restricts what can be seen outside this namespace
+
+    const car_sprite_canvas = document.getElementById("car_sprite_canvas");
+    const ctx = car_sprite_canvas.getContext("2d");
+
+    ctx.save();
+        ctx.font = "40px sans";
+        ctx.fillText("click me",10, 30);
+    ctx.restore();
+
+    function draw_car() {
+
+        var x=0; // x and y give the top left corner of the position on the canvas where the car is to be drawn
+        var y=0;
+        var f=0; // f multiplies car_y to select an image on the spritesheet
+        var car_x = 32; // car_x and f*car_y give the top left corner of the image to use from the spritesheet 
+        var car_y = 32;
+        var w=32; // w and h are the width and height of the part of the spritesheet to be drawn
+        var h=32;
+
+        var cars = document.getElementById("carsprites");
+
+        draw_car();
+
+        function draw_car() {
+
+            ctx.fillStyle="#292";
+            ctx.fillRect(0,0,car_sprite_canvas.width, car_sprite_canvas.height);
+            ctx.fillStyle="#aaa";
+            ctx.fillRect(0,25,car_sprite_canvas.width, car_sprite_canvas.height-25);
+
+            if (x>=(car_sprite_canvas.width)) { // make the car appear at the beginning if it runs off the canvas
+                x=0;
+            }
+            x+=2;
+            f++;
+        
+            // f multiplies car_y so that a different version of the car is selected each time the car is drawn
+            if (f==2) {
+                f=4;
+            }
+            if (f==6) {
+                f=0;
+            }
+        
+            // cars is the spritesheet image
+            // car_x and f*car_y give the top left corner of the part of the spritesheet to draw
+            // w and h are the width and height of the car
+            // x and y give the top left position on the canvas where the car is to be drawn
+            ctx.drawImage(cars, car_x, f*car_y, w, h, x, y, w, h);
+
+            requestAnimationFrame(draw_car);
+        }
+    }
+
+    return { draw_car: draw_car } // an object with a single property, draw_car, whose value is the method draw_car()
+}() // execute the anonymous function to set the value of car_sprites_namespace to the returned object
+</script>
+</body>

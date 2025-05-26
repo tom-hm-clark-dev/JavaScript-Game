@@ -1,0 +1,28 @@
+<html>
+    <!-- Edel Sherratt October 2022; random leaderboard demo.  -->
+    <head>
+        <title>Random leaderboard</title>
+        <meta lang="en" charset="utf-8"/>
+        <link rel="icon" href="blue_splat.png">
+        <link rel="stylesheet" href="random_leaderboard.css">
+        <script src="random_leaderboard.js"></script>    
+        <script src="assignment_game_09.js"></script>        
+    
+    </head>
+
+    <body onload="random_leaderboard_namespace.display_leaderboard();random_leaderboard_namespace.display_random_number()">
+
+        <p>Enter your name here: <input id="player_name" type = "text"></p>
+        <p>Click on the canvas to play</p>
+
+        <p id="response"></p>
+
+        <canvas width="200" height="200" id="random_canvas" onclick="random_leaderboard_namespace.save_score()" ></canvas>
+
+        <table id="leaderboard"><caption>Top Scores</caption>
+            <thead><tr><th>Name</th><th>Score</th></tr></thead>
+            <tbody id="top_scores"></tbody>
+        </table>
+
+    </body>
+</html>
